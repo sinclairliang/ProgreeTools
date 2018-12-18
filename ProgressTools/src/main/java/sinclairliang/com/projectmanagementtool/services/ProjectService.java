@@ -27,12 +27,21 @@ public class ProjectService {
         Project project = projectRepository.findByprojectIdentifier(projectId);
         if (project == null) {
             throw new ProjectIdException(
-                    "Project does not existed");
+                    "Project '" + projectId + "' does not existed");
         }
         return project;
     }
 
     public Iterable<Project> findAllProjects() {
         return projectRepository.findAll();
+    }
+
+    public void deleteProjectByIdentifier(String projectId) {
+        Project project = projectRepository.findByprojectIdentifier(projectId.toUpperCase());
+        if (project == null) {
+            throw new ProjectIdException(
+                    "Project '" + projectId + "' does not existed");
+        }
+        projectRepository.delete(project);
     }
 }
