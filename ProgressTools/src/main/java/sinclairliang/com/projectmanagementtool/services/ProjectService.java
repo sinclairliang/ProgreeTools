@@ -12,14 +12,24 @@ public class ProjectService {
     private ProjectRepository projectRepository;
 
     public Project saveOrUpdateProject(Project project) {
-
         // many more logic
         try {
             project.setProjectIdentifier(project.getProjectIdentifier().toUpperCase());
             // set the Project Identifier to upper case;
             return projectRepository.save(project);
         } catch (Exception e) {
-            throw new ProjectIdException("Project ID '" + project.getProjectIdentifier().toUpperCase() + "' already existed");
+            throw new ProjectIdException(
+                    "Project ID '" + project.getProjectIdentifier().toUpperCase() + "' already existed");
         }
+    }
+
+    public Project findProjectByIdentifier(String projectId) {
+        Project project = projectRepository.findByprojectIdentifier(projectId);
+        if(project == null)
+        {
+            throw new ProjectIdException(
+                    "Project does not existed");
+        }
+        return project;
     }
 }

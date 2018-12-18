@@ -7,10 +7,6 @@ import sinclairliang.com.projectmanagementtool.domain.Project;
 
 @Repository
 public interface ProjectRepository extends CrudRepository<Project, Long> {
+    Project findByprojectIdentifier(String projectId);
 
-    @Override
-    Iterable<Project> findAllById(Iterable<Long> iterable);
-
-    @Override
-    <S extends Project> S save(S s);
 }

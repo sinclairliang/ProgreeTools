@@ -10,7 +10,6 @@ import java.util.Date;
 
 @Entity
 public class Project {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -33,7 +32,10 @@ public class Project {
     private Date updated_At;
 
     public Project() {
+        // empty constructor;
     }
+
+    // a bunch of getters and setters;
 
     public Long getId() {
         return id;
