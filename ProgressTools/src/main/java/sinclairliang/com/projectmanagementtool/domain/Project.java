@@ -10,7 +10,6 @@ import java.util.Date;
 
 @Entity
 public class Project {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -19,6 +18,7 @@ public class Project {
     @NotBlank(message = "Project Identifier is required")
     @Size(min = 3, max = 6, message = "Please use 3 to 6 characters")
     @Column(updatable = false, unique = true)
+    // This sets unique in the database
     private String projectIdentifier;
     @NotBlank(message = "Please enter project description")
     private String description;
@@ -26,14 +26,16 @@ public class Project {
     private Date start_date;
     @JsonFormat(pattern = "yyyy-mm-dd")
     private Date end_date;
-
     @JsonFormat(pattern = "yyyy-mm-dd")
     private Date created_At;
     @JsonFormat(pattern = "yyyy-mm-dd")
     private Date updated_At;
 
     public Project() {
+        // empty constructor;
     }
+
+    // a bunch of getters and setters;
 
     public Long getId() {
         return id;
