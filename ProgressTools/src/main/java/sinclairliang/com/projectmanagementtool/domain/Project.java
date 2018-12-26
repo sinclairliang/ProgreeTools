@@ -13,12 +13,12 @@ public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank(message = "Project name is required")
+    @NotBlank(message = "Project name is required") // Show this message if conditions not met.
     private String projectName;
-    @NotBlank(message = "Project Identifier is required")
-    @Size(min = 3, max = 6, message = "Please use 3 to 6 characters")
+    @NotBlank(message = "Project Identifier is required") // Show this message if conditions not met.
+    @Size(min = 3, max = 6, message = "Please use 3 to 6 characters") // Show this message if conditions not met.
     @Column(updatable = false, unique = true)
-    // This sets unique in the database
+    // This sets unique in the database only
     private String projectIdentifier;
     @NotBlank(message = "Please enter project description")
     private String description;

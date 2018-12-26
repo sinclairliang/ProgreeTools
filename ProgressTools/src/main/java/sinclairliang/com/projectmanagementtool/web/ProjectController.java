@@ -15,6 +15,9 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/api/project")
 public class ProjectController {
+    /*
+    Under this class all the routes will be /api/project/*
+     */
 
     @Autowired
     private ProjectService projectService;
