@@ -12,6 +12,9 @@ import java.util.Map;
 @Service
 public class MapValidation {
     public ResponseEntity<?> MapValidationService(BindingResult result) {
+        /*
+        Use HashMap to achieve one to one mapping with Project ID and Project Object
+         */
         if (result.hasErrors()) {
             Map<String, String> errorMap = new HashMap<>();
             for (FieldError error : result.getFieldErrors()) {
