@@ -27,6 +27,7 @@ class AddProject extends Component {
                       className="form-control form-control-lg "
                       placeholder="Project Name"
                       name="projectName"
+                      value={this.state.projectName}
                     />
                   </div>
                   <div className="form-group">
@@ -35,6 +36,7 @@ class AddProject extends Component {
                       className="form-control form-control-lg"
                       placeholder="Unique Project ID"
                       name="projectIdentifier"
+                      value={this.state.projectIdentifier}
                     />
                   </div>
                   <div className="form-group">
@@ -42,6 +44,7 @@ class AddProject extends Component {
                       className="form-control form-control-lg"
                       placeholder="Project Description"
                       name="description"
+                      value={this.state.description}
                     />
                   </div>
                   <h6>Start Date</h6>
@@ -50,6 +53,7 @@ class AddProject extends Component {
                       type="date"
                       className="form-control form-control-lg"
                       name="start_date"
+                      value={this.state.start_date}
                     />
                   </div>
                   <h6>Estimated End Date</h6>
@@ -58,6 +62,7 @@ class AddProject extends Component {
                       type="date"
                       className="form-control form-control-lg"
                       name="end_date"
+                      value={this.state.end_date}
                     />
                   </div>
                   <input
