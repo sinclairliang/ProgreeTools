@@ -20,6 +20,7 @@ onChange(e) {
 }
 
 onSubmit(e) {
+  e.preventDefault();
   const newProject = {
     projectName: this.state.projectName,
     projectIdentifier: this.state.projectIdentifier,
@@ -27,6 +28,8 @@ onSubmit(e) {
     start_date: this.state.start_date,
     end_date: this.state.end_date
   };
+
+  console.log(newProject) // to check the object
 }
 
   render() {
