@@ -12,10 +12,21 @@ class AddProject extends Component {
     };
 
     this.onChange = this.onChange.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
   }
 
 onChange(e) {
   this.setState({ [e.target.name]:e.target.value })
+}
+
+onSubmit(e) {
+  const newProject = {
+    projectName: this.state.projectName,
+    projectIdentifier: this.state.projectIdentifier,
+    description: this.state.description,
+    start_date: this.state.start_date,
+    end_date: this.state.end_date
+  };
 }
 
   render() {
@@ -27,7 +38,7 @@ onChange(e) {
               <div className="col-md-8 m-auto">
                 <h5 className="display-4 text-center">Create Project form</h5>
                 <hr />
-                <form>
+                <form onSubmit= {this.onSubmit}>
                   <div className="form-group">
                     <input
                       type="text"
