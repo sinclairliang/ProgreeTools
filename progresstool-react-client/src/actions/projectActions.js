@@ -6,7 +6,8 @@ import {
 
 export const createProject = (project, history) => async dispatch => {
     try {
-        const res = await axios.post("http://localhost:8080/api/project", project)
+        const res = await axios.post("http://localhost:8080/api/project", project);
+        // don't forget about the semi colon in the end;
         history.push("/dashboard")
     } catch (error) {
         dispatch({
