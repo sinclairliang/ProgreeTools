@@ -1,7 +1,5 @@
 import axios from "axios"
-import {
-    GET_ERRORS
-} from "./types"
+import { GET_ERRORS } from "./types"
 
 
 export const createProject = (project, history) => async dispatch => {
@@ -13,6 +11,6 @@ export const createProject = (project, history) => async dispatch => {
         dispatch({
             type: GET_ERRORS,
             payload: error.response.data
-        })
+        });
     }
-}
+};
