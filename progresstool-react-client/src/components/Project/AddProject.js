@@ -1,13 +1,7 @@
-import React, {
-  Component
-} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {
-  connect
-} from "react-redux";
-import {
-  createProject
-} from "../../actions/projectActions"
+import { connect } from "react-redux";
+import { createProject } from "../../actions/projectActions"
 
 class AddProject extends Component {
   constructor() {
@@ -29,9 +23,7 @@ class AddProject extends Component {
   // life cycle hooks;
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
-      this.setState({
-        errors: nextProps.errors
-      });
+      this.setState({ errors: nextProps.errors });
     }
   }
 
@@ -55,9 +47,7 @@ class AddProject extends Component {
   }
 
   render() {
-      const {
-        errors
-      } = this.state;
+      const { errors } = this.state;
 
     
     return (
