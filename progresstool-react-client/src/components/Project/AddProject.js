@@ -4,33 +4,33 @@ class AddProject extends Component {
   constructor() {
     super();
     this.state = {
-        projectName: "",
-        projectIdentifier: "",
-        description: "",
-        start_date: "",
-        end_date: ""
+      projectName: "",
+      projectIdentifier: "",
+      description: "",
+      start_date: "",
+      end_date: ""
     };
 
-    this.onChange = this.onChange.bind(this)
-    this.onSubmit = this.onSubmit.bind(this)
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
-onChange(e) {
-  this.setState({ [e.target.name]:e.target.value })
-}
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
 
-onSubmit(e) {
-  e.preventDefault();
-  const newProject = {
-    projectName: this.state.projectName,
-    projectIdentifier: this.state.projectIdentifier,
-    description: this.state.description,
-    start_date: this.state.start_date,
-    end_date: this.state.end_date
-  };
+  onSubmit(e) {
+    e.preventDefault();
+    const newProject = {
+      projectName: this.state.projectName,
+      projectIdentifier: this.state.projectIdentifier,
+      description: this.state.description,
+      start_date: this.state.start_date,
+      end_date: this.state.end_date
+    };
 
-  console.log(newProject) // to check the object
-}
+    console.log(newProject); // to check the object
+  }
 
   render() {
     return (
@@ -41,7 +41,7 @@ onSubmit(e) {
               <div className="col-md-8 m-auto">
                 <h5 className="display-4 text-center">Create Project form</h5>
                 <hr />
-                <form onSubmit= {this.onSubmit}>
+                <form onSubmit={this.onSubmit}>
                   <div className="form-group">
                     <input
                       type="text"
