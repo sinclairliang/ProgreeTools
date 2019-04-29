@@ -9,6 +9,4 @@ public class ProjectmanagementtoolApplication {
     public static void main(String[] args) {
         SpringApplication.run(ProjectmanagementtoolApplication.class, args);
     }
-
 }
-
