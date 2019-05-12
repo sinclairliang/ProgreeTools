@@ -1,7 +1,7 @@
 import { GET_PROJECTS } from "../actions/types";
 
 const initialState = {
-  projetcs: [],
+  projects: [],
   project: {}
 };
 
@@ -10,7 +10,7 @@ export default function(state = initialState, action) {
     case GET_PROJECTS:
       return {
         ...state,
-        projetcs: action.payload
+        projects: action.payload
       };
     default:
       return state;
