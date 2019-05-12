@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { createProject } from "../../actions/projectActions";
 import classname from "classnames";
 
+
 class AddProject extends Component {
   constructor() {
     super();
@@ -20,6 +21,7 @@ class AddProject extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
@@ -28,6 +30,7 @@ class AddProject extends Component {
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
+
   }
 
   onSubmit(e) {
@@ -40,12 +43,14 @@ class AddProject extends Component {
       end_date: this.state.end_date
     };
     this.props.createProject(newProject, this.props.history);
+    
     // console.log(newProject); // to check the object
   }
 
   render() {
     const { errors } = this.state;
     // console.log(errors.projectName);
+
     return (
       <div>
         <div className="project">
@@ -58,8 +63,10 @@ class AddProject extends Component {
                   <div className="form-group">
                     <input
                       type="text"
+
                       className={classname("form-control form-control-lg ", {
                         "is-invalid": errors.projectName
+
                       })}
                       placeholder="Project Name"
                       name="projectName"
@@ -67,16 +74,20 @@ class AddProject extends Component {
                       onChange={this.onChange}
                     />
                     {errors.projectName && (
+
                       <div className="invalid-feedback">
                         {errors.projectName}
                       </div>
+
                     )}
                   </div>
                   <div className="form-group">
                     <input
                       type="text"
+
                       className={classname("form-control form-control-lg ", {
                         "is-invalid": errors.projectIdentifier
+
                       })}
                       placeholder="Unique Project ID"
                       name="projectIdentifier"
@@ -84,15 +95,20 @@ class AddProject extends Component {
                       onChange={this.onChange}
                     />
                     {errors.projectIdentifier && (
+
                       <div className="invalid-feedback">
                         {errors.projectIdentifier}
                       </div>
+
                     )}
                   </div>
+
                   <div className="form-group">
                     <textarea
+
                       className={classname("form-control form-control-lg ", {
                         "is-invalid": errors.description
+
                       })}
                       placeholder="Project Description"
                       name="description"
@@ -100,11 +116,14 @@ class AddProject extends Component {
                       onChange={this.onChange}
                     />
                     {errors.description && (
+
                       <div className="invalid-feedback">
                         {errors.description}
                       </div>
+
                     )}
                   </div>
+
                   <h6>Start Date</h6>
                   <div className="form-group">
                     <input
@@ -114,7 +133,7 @@ class AddProject extends Component {
                       value={this.state.start_date}
                       onChange={this.onChange}
                     />
-                  </div>
+                  </div>                
                   <h6>Estimated End Date</h6>
                   <div className="form-group">
                     <input
@@ -139,10 +158,12 @@ class AddProject extends Component {
   }
 }
 
+
 AddProject.PropTypes = {
   createProject: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired
 };
+
 
 const mapStateToProps = state => ({
   errors: state.errors
@@ -152,3 +173,4 @@ export default connect(
   mapStateToProps,
   { createProject }
 )(AddProject);
+

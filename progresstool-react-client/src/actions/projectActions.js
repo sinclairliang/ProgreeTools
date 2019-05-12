@@ -21,3 +21,4 @@ export const getProjects = () => async dispatch => {
     payload: res.data
   });
 };
+

@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 import store from "./store";
 import UpdateProject from "./components/Project/UpdateProject";
 
+
 class App extends Component {
   render() {
     return (
@@ -18,6 +19,7 @@ class App extends Component {
             <Header />
             <Route exact path="/addProject" component={AddProject} />
             <Route exact path="/dashboard" component={Dashboard} />
+
             <Route exact path="/updateProject/:id" component={UpdateProject} />
           </div>
         </Router>
@@ -27,3 +29,5 @@ class App extends Component {
 }
 
 export default App;
+
+// This is a note to start working on branch 21

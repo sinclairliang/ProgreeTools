@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 import {Link} from "react-router-dom";
 
@@ -40,6 +41,7 @@ class ProjectItem extends Component {
       </div>
     );
   }
+
 }
 
 export default ProjectItem;

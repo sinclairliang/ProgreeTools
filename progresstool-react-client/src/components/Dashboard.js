@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 import ProjectItem from "./Project/ProjectItem";
 import CreateProjectButton from "./Project/CreateProjectButton";
@@ -29,6 +30,7 @@ class Dashboard extends Component {
                     <ProjectItem key={project.id} project={project} />
                 ))}
               </div>
+
             </div>
           </div>
         </div>
@@ -49,3 +51,4 @@ export default connect(
     mapStateToProps,
     { getProjects }
 )(Dashboard);
+
