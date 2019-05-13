@@ -1,10 +1,44 @@
 import React, {Component} from 'react';
-import {getProject, getProjects} from "../../actions/projectActions";
+import {getProject, createProject} from "../../actions/projectActions";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import classnames from "classnames";
 
 class UpdateProject extends Component {
+
+  constructor() {
+    super();
+
+    this.state = {
+      id: "",
+      projectName: "",
+      projectIdentifier: "",
+      description: "",
+      start_date: "",
+      end_date: ""
+    };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const {
+      id,
+      projectName,
+      projectIdentifier,
+      description,
+      start_date,
+      end_date
+    } = nextProps.project;
+
+    this.setState({
+      id,
+      projectName,
+      projectIdentifier,
+      description,
+      start_date,
+      end_date
+    });
+  }
+
   componentDidMount() {
     const {id} = this.props.match.params;
     this.props.getProject(id, this.props.history);
@@ -22,22 +56,26 @@ class UpdateProject extends Component {
                 <hr/>
                 <form>
                   <div className="form-group">
-                    <input type="text" className="form-control form-control-lg " placeholder="Project Name"/>
+                    <input type="text" className="form-control form-control-lg " placeholder="Project Name"
+                           name="projectName" value={this.state.projectName}/>
                   </div>
                   <div className="form-group">
                     <input type="text" className="form-control form-control-lg" placeholder="Unique Project ID"
+                           name="projectIdentifier" value={this.state.projectIdentifier}
                            disabled/>
                   </div>
                   <div className="form-group">
-                    <textarea className="form-control form-control-lg" placeholder="Project Description"></textarea>
+                    <textarea className="form-control form-control-lg" placeholder="Project Description"
+                              name="description" value={this.state.description}></textarea>
                   </div>
                   <h6>Start Date</h6>
                   <div className="form-group">
-                    <input type="date" className="form-control form-control-lg" name="start_date"/>
+                    <input type="date" className="form-control form-control-lg" name="start_date"
+                           value={this.state.start_date}/>
                   </div>
                   <h6>Estimated End Date</h6>
                   <div className="form-group">
-                    <input type="date" className="form-control form-control-lg" name="end_date"/>
+                    <input type="date" className="form-control form-control-lg" name="end_date" value={this.state.end}/>
                   </div>
 
                   <input type="submit" className="btn btn-primary btn-block mt-4"/>
@@ -57,11 +95,11 @@ UpdateProject.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  project: state.project
+  project: state.project.project
 });
 
 
 export default connect(
     mapStateToProps,
-    {getProject}
+    {getProject, createProject}
 )(UpdateProject);

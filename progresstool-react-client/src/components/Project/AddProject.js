@@ -84,10 +84,8 @@ class AddProject extends Component {
                   <div className="form-group">
                     <input
                       type="text"
-
                       className={classname("form-control form-control-lg ", {
                         "is-invalid": errors.projectIdentifier
-
                       })}
                       placeholder="Unique Project ID"
                       name="projectIdentifier"
